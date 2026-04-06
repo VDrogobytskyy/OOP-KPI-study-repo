@@ -35,7 +35,7 @@ public class JsonBankAdapter : IDomainPayment {
 
     public decimal GetAmount()
     {
-        return Convert.ToDecimal(_JsonApi.amount_value);
+        return Convert.ToDecimal(_JsonApi.amount_value, System.Globalization.CultureInfo.InvariantCulture);
     }
 
     public string GetCurrency()
@@ -119,9 +119,9 @@ public class ModernBankAdapter : IDomainPayment
     {
         return _modernApi.ISO_Currency;
     }
-    public Task<string> GetStatusAsync()
+    public async Task<string> GetStatusAsync()
     {
-        int res = _modernApi.FetchStatusCodeAsync();
+        int res = await _modernApi.FetchStatusCodeAsync();
 
         if(res == 1)
         {
