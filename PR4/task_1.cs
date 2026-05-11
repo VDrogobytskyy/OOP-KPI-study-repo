@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-// Завдання 1. Observer / Спостерігач
-// Автор публікує відео, а всі підписники автоматично отримують сповіщення.
+// Observer 
 
 interface ISubscriber
 {
